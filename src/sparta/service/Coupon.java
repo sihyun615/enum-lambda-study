@@ -11,18 +11,11 @@ public class Coupon {
         this.couponPrice = couponPrice;
     }
 
-    public int calcPrice(DiscountEvent event) {
-        int benefit;
+    public int calcPrice(DiscountEvent event, int price) {
+        return price + event.calc(price);
+    }
 
-        switch (event) {
-            case NONE -> benefit = couponPrice;
-            case SUMMER -> benefit = (int) (couponPrice * 0.1);
-            case WINTER -> benefit = (int) (couponPrice * 0.2);
-            case BLACK_FRIDAY -> benefit = (int) (couponPrice * 0.3);
-            case NEW_YEAR -> benefit = (int) (couponPrice * 0.5);
-            default -> benefit = 0;
-        }
-
-        return couponPrice + benefit;
+    public int getCouponPrice() {
+        return couponPrice;
     }
 }

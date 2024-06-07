@@ -16,8 +16,8 @@ public class Main {
         final Coupon coupon = new Coupon("특가쿠폰", 5000);
         final Product product = new Product("아이폰135 Super Ultra Pro Max", 20_000_000);
 
-        final int couponPrice = coupon.calcPrice(DiscountEvent.SUMMER);
-        final int productPrice = product.calcPrice(DiscountEvent.WINTER);
+        final int couponPrice = coupon.calcPrice(DiscountEvent.SUMMER, coupon.getCouponPrice());
+        final int productPrice = product.calcPrice(DiscountEvent.WINTER, product.getPrice());
 
         System.out.println("couponPrice = " + couponPrice);
         System.out.println("productPrice = " + productPrice);
